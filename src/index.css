@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #111111;
+    --color-secondary: #F7F5F1;
+    --color-cream: #F1EDE5;
+    --color-border: #E7E3DC;
+    --color-text: #171717;
+    --color-muted: #777777;
+    --color-surface: #FFFFFF;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #FFFFFF;
+    color: #171717;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #111111;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+/* Container conforming to Phase 7 */
+.luxora-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 640px) {
+  .luxora-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Section Spacing System */
+.luxora-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media (max-width: 1024px) {
+  .luxora-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .luxora-section {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+}
+
+/* Typography clamped helpers */
+.luxora-hero-title {
+  font-size: clamp(32px, 4.5vw, 64px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.luxora-section-title {
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Toast Animation */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toast-enter {
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
